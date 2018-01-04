@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>Demo</title>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+// Using the core $.ajax() method
+$(document).ready( function() {
+	$.ajax({
+	 
+		// The URL for the request
+		url: "http://dcfm.eastmoney.com//em_mutisvcexpandinterface/api/js/get?type=NBJB_YJYB_N&token=70f12f2f4f091e459a279469fe49eca5&st=NOTICEDATE&sr=-1&p=1&ps=100&filter=(REPORTDATE=^2017-12-31^)&rt=50502494",
+	 
+		// Whether this is a POST or GET request
+		type: "GET",
+
+		crossDomain: true,
+		// The type of data we expect back
+		dataType : "jsonp",
+		//jsonp: "callbackparam",
+		//jsonpCallback:"success_jsonpCallback",
+	}).done(function(data) {
+	alert(eval(data));
+			$("#myDiv").html(eval(json));
+	});
+});
+</script>
+</head>
+<body>
+<div id="myDiv"><h2>Let AJAX change this text</h2></div>
+</body>
+</html>
